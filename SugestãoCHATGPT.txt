@@ -1,0 +1,85 @@
+projeto mysql modelagem logica boletim socioemocional definido por trimestre, onde as menções correspondem aos numerais de 1 à 4. 
+Cada nota pertence à uma caracteristica comportamental do aluno e como ele resolveu problemas.
+As caracteristicas são avaliadas por matérias específicas.
+
+
+Com base nas informações fornecidas, sugiro o seguinte modelo de banco de dados em MySQL para um sistema de boletim socioemocional definido por trimestre:
+
+TABELA: Aluno
+
+id_aluno (chave primária)
+nome_aluno
+data_nascimento
+sexo
+endereço
+telefone
+
+TABELA: Disciplina
+
+id_disciplina (chave primária)
+nome_disciplina
+
+TABELA: Caracteristica
+
+id_caracteristica (chave primária)
+nome_caracteristica
+
+TABELA: Nota
+
+id_nota (chave primária)
+id_aluno (chave estrangeira referenciando a tabela Aluno)
+id_disciplina (chave estrangeira referenciando a tabela Disciplina)
+id_caracteristica (chave estrangeira referenciando a tabela Caracteristica)
+trimestre
+nota
+
+
+Com esse modelo, é possível associar cada nota a um aluno, uma disciplina, uma característica comportamental específica 
+e o trimestre correspondente. A tabela Aluno pode conter informações básicas sobre os alunos, como nome, data de nascimento, sexo, 
+endereço e telefone. A tabela Disciplina pode conter informações sobre as matérias específicas avaliadas. A tabela Caracteristica pode 
+conter informações sobre as características comportamentais avaliadas, enquanto a tabela Nota armazena as notas propriamente ditas, 
+juntamente com as referências para o aluno, a disciplina e a característica correspondente.
+
+
+Para a coluna "nota" na tabela Nota, sugiro utilizar um número inteiro de 1 a 4 para representar as menções correspondentes, 
+conforme mencionado na pergunta. O valor 1 pode representar a menor menção (geralmente "insuficiente" ou "precisa melhorar"), 
+enquanto o valor 4 pode representar a maior menção (geralmente "excelente" ou "muito bom").
+
+É importante ressaltar que esse modelo é apenas uma sugestão e pode ser adaptado de acordo com as necessidades específicas do projeto. 
+É possível adicionar mais tabelas e colunas, conforme necessário, para atender aos requisitos do sistema. Além disso, é importante considerar 
+aspectos de segurança, como a proteção dos dados pessoais dos alunos, bem como questões de performance e escalabilidade do banco de dados.
+
+
+######## Cardinalidade
+
+Para definir a cardinalidade de uma relação entre tabelas em um modelo de banco de dados, é necessário responder à seguinte pergunta:
+
+Quantos registros de uma tabela estão relacionados a quantos registros da outra tabela?
+A resposta a essa pergunta ajuda a determinar qual é a cardinalidade adequada para a relação em questão. Existem três tipos principais de cardinalidade 
+em um modelo de banco de dados:
+
+Cardinalidade 1:1 (um para um): cada registro em uma tabela está relacionado a apenas um registro em outra tabela.
+
+Cardinalidade 1:N (um para muitos): cada registro em uma tabela está relacionado a vários registros em outra tabela.
+
+Cardinalidade N:M (muitos para muitos): vários registros em uma tabela estão relacionados a vários registros em outra tabela.
+
+Ao responder a pergunta sobre quantos registros de uma tabela estão relacionados a quantos registros da outra tabela, é possível determinar 
+qual é a cardinalidade mais apropriada para a relação em questão. É importante lembrar que a escolha da cardinalidade adequada depende da lógica de negócios 
+envolvida no projeto, das regras de negócios e dos requisitos específicos de cada caso.
+
+
+
+Para identificar as cardinalidades aplicáveis ao exemplo de modelo de banco de dados proposto, é preciso considerar 
+as relações entre as tabelas. Com base no modelo apresentado, podemos identificar as seguintes cardinalidades:
+
+Aluno para Nota: Cardinalidade 1:N (Um aluno pode ter várias notas, mas cada nota pertence apenas a um aluno).
+
+Disciplina para Nota: Cardinalidade 1:N (Uma disciplina pode ter várias notas, mas cada nota pertence apenas a uma disciplina).
+
+Caracteristica para Nota: Cardinalidade 1:N (Uma característica comportamental pode ter várias notas, mas cada nota pertence apenas a uma característica).
+
+Dessa forma, temos três relações 1:N no modelo proposto, envolvendo as tabelas Aluno, Disciplina e Caracteristica com a tabela Nota. É importante lembrar 
+que outras cardinalidades podem ser adicionadas dependendo das necessidades específicas do projeto e da lógica de negócios envolvida.
+
+

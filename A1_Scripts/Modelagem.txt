@@ -1,0 +1,114 @@
+
+--> Mr. Paulo Foina
+
+TD_Indicador (tabela de indicadores)
+- Cod_Ind, numerico (chave primária)
+- Ord_Ind, numerico (ordem de impressão)
+- Nome_ind, texto curto (nome do indicador)
+
+TD_Sub (tabema de subindicadores)
+- Cod_Sub, numérico (chave primária)
+- Ord_Sub, numerico (ordem de impressão)
+- Nome_Sub, texto curto (nome do indicador)
+- Desc_Sub, texto longo (descrição do indicador)
+
+TB_Aluno (importado do Mentor)
+- Cod_Aluno (RA do aluno)
+- Nome_Aluno, texto (nome do aluno)
+- Serie, 
+- Turma
+
+TD_Avaliador 
+- Cod_Aval, chave primária
+- Nome_Aval, texto, (nome do avaliador)
+
+TR_Ind_sub_Ind (tabela de relacionamento entre Indicador e Subindicador)
+- Cod_Relac, numerico (chave primária)
+- Cod_Ind (chave estrangeira)
+- Cod_Sub (chave estrangeira)
+
+TB_Nota (avaliação dos subindicadores de cada aluno)
+- Cod_Nota, numerico (chave primária)
+- Cod_Ind_sub_Ind (chave estrangeira)
+- Cod_Aluno  (chave estrangeira)
+- Cod_Aval  (chave estrangeira)
+- Ano, numérico
+- Trimestre, numérico
+- Nota, numérico (0,1,2,3,4)
+
+TB_Parâmetros
+- Ano atual
+- Trimestre atual
+- Ultimo aluno gerado
+ 
+Funcionalidades desejadas
+1) Tela de consulta de notas - filtros: cod_aluno, Turma ou tudos - opção de alterar as notas de um aluno
+2) Tela de avaliação - abre o próximo aluno a ser avaliado e permite incuir as notas para cada subitem
+3) Tela de geração de boletins - filtros: cod_aluno, cod_turma ou todos / detalhado ou sintético 
+- gera PDF com todos os boletins (detalhado ou sintético) dos alunos selecionados
+
+
+------------------------------------------------------------------------------------------------------------------------------
+O boletim socioemocional é composto por tópicos e por subtópicos, e serão preenchidos pelos professores 
+com as avaliações relacionadas; não será inclusa na grade curricular padrão, é necessário que seja avulsa, 
+como se fosse uma “eletiva” igual ao ensino médio; acontece que cada trimestre tem subtópicos de avaliações distintas, 
+o que seria mais ou menos 2 tópicos e 4 subtópicos por trimestre e não possui horário e nem dia,
+é uma avaliação sobre desenvolvimento do aluno.
+
+Nós pensamos dois caminhos para realização:
+
+1º criar disciplinas no MentorWeb e vincular as disciplinas aos alunos e a uma turma 
+e não colocar se cada trimestre vincular as outras disciplinas. 
+(esse modelo foi utilizado no Ensino Médio porque nem todos os alunos estudam as mesmas eletivas e/ou itinerários, 
+já no Ensino Fundamental I, a turma inteira será avaliada, sem exceção).
+
+2º Criar turmas extras e colocar os tópicos como se fossem disciplinas e vincular as disciplinas 
+ao professor para que ele possa preencher, pois o socioemocional não tem uma carga horária específica, 
+não possui dia no cronograma e nem horário.
+
+Todos os tópicos e seus subtópicos foram incluídos nos “objetivos acadêmicos” e não sabemos qual o 
+vínculo dos objetivos acadêmicos com disciplinas/turmas, no que é necessário a aplicação dessa informação.
+
+
+--Desc geral.
+
+Sistema para gerar boletim socioemocional para o colégio Everest - Kinder.
+
+Entidades:
+
+-- Aluno
+  > id_aluno PK INT AI;
+  > registro_academico CHAR(5)
+  > nome VARCHAR(50)
+  > turma VARCHAR(15)
+
+-- Professor
+  > id_professor PK INT AI;
+  > nome VARCHAR(50)
+  > disciplina VARCHAR(25)
+
+-- Disciplina
+  > id_disciplina PK INT AI;
+  > Professor FK
+  > Titulo_disciplina VARCHAR(25)
+  > Descrição_disciplina VARCHAR(50)
+
+-- Indicador
+  > id_indicador PK INT AI;
+  > sigla CHAR(2)
+  > descricao VARCHAR(60)
+
+-- Sub_indicador
+  > id_sub_indicador PK INT AI;
+  > descricao VARCHAR(150);
+
+-- Parametros
+  > id_parametro PK INT AI;
+  > ano_letivo DATE
+  > trimestre VARCHAR(12)
+
+-- Comentários
+  > id_comentario PK INT AI;
+  > comentario VARCHAR(1000);
+
+

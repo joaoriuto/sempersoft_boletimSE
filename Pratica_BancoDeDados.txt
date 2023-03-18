@@ -1,0 +1,43 @@
+Para praticar banco de dados, existem diversas abordagens que você pode seguir, tais como:
+
+Crie projetos pessoais: desenvolva aplicações pessoais utilizando bancos de dados, como por exemplo, um sistema de gerenciamento de tarefas, 
+um aplicativo de gerenciamento de finanças, um sistema de agendamento de compromissos, entre outros. 
+Esses projetos podem ajudá-lo a praticar modelagem de banco de dados, SQL, normalização de dados e outras habilidades relacionadas.
+
+Resolva problemas de banco de dados: busque problemas comuns relacionados a banco de dados, tais como 
+otimização de consultas, tratamento de dados ausentes, segurança de dados, 
+e pratique a resolução desses problemas. Isso pode ajudá-lo a entender melhor os desafios enfrentados pelos profissionais que trabalham com bancos de dados.
+
+Pratique com ferramentas e tecnologias de banco de dados: existem diversas ferramentas e tecnologias relacionadas a bancos de dados, 
+como MySQL, SQL Server,PostgreSQL, MongoDB, Oracle, entre outras. Escolha uma delas e pratique com ela, aprendendo suas funcionalidades e recursos.
+
+Participe de projetos de código aberto: você pode contribuir para projetos de código aberto que utilizam bancos de dados, 
+ajudando a melhorar a eficiência e segurança do sistema, por exemplo.
+
+Faça cursos e treinamentos: existem diversos cursos e treinamentos online que podem ajudá-lo a aprimorar suas habilidades em banco de dados, 
+desde conceitos básicos até tópicos avançados.
+
+É importante lembrar que a prática é fundamental para o aprendizado efetivo, portanto, procure praticar regularmente e buscar por projetos que permitam que você aplique o que aprendeu.
+Além disso, lembre-se de buscar por feedbacks e orientações de profissionais mais experientes para ajudá-lo a evoluir em sua jornada de aprendizado em banco de dados.
+
+Cardinalidade:
+
+Em bancos de dados, a cardinalidade refere-se ao número de ocorrências de uma entidade que se relaciona com outra entidade em um relacionamento.
+
+Em um relacionamento entre duas tabelas, a cardinalidade descreve quantas ocorrências 
+da tabela relacionada correspondem a uma ocorrência na tabela principal. Existem três tipos principais de cardinalidade em bancos de dados:
+
+Cardinalidade de um para um (1:1): nesse tipo de relacionamento, uma ocorrência da tabela principal corresponde a uma única ocorrência 
+na tabela relacionada e vice-versa. Um exemplo disso é o relacionamento entre uma tabela "Pessoa" e uma tabela "CPF", 
+onde cada pessoa tem um único número de CPF e cada número de CPF pertence a apenas uma pessoa.
+
+Cardinalidade de um para muitos (1:N): nesse tipo de relacionamento, uma ocorrência na tabela principal corresponde 
+a várias ocorrências na tabela relacionada, mas cada ocorrência na tabela relacionada corresponde a apenas uma ocorrência na tabela principal. 
+Um exemplo disso é o relacionamento entre uma tabela "Pedido" e uma tabela "Item de Pedido", 
+onde cada pedido pode ter vários itens, mas cada item pertence a apenas um pedido.
+
+Cardinalidade de muitos para muitos (N:M): nesse tipo de relacionamento, várias ocorrências na tabela principal 
+correspondem a várias ocorrências na tabela relacionada e vice-versa. Um exemplo disso é o relacionamento entre 
+uma tabela "Livro" e uma tabela "Autor", onde cada livro pode ter vários autores e cada autor pode ter escrito vários livros.
+
+A cardinalidade é importante na modelagem de banco de dados, pois ajuda a garantir a integridade dos dados e a evitar redundâncias desnecessárias.
