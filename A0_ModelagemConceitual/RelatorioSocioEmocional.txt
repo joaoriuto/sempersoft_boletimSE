@@ -1,0 +1,86 @@
+--> Banco de dados: 
+	--> Armazenar informações para a composição de um relatório socioemocional.
+	
+	#A avaliação será realizada por professores regentes: 1 para cada matéria
+
+--> Composição do relatório:
+	--> Cabeçalho {
+		Título: RELATÓRIO PEDAGÓGICO SOCIOEMOCIONAL
+		Logomarca;
+		Nome do aluno(a);
+		Série;
+		Turma;
+		Ano letivo;
+		Professor;
+		
+		Sub-título: Menções;
+		Sigla seguida de descrição do indicador;
+	};
+	
+--> Corpo do relatório {
+	Macro indicadores - Organizados por trimestre 
+		(Autonomia, 
+		 Empatia e cooperação, 
+		 Auto conhecimento, 
+		 Auto cuidado,
+		 Responsabilidade e cidadania,
+		 Trabalho e projeto de vida,
+		 Comunicação e argumentação)
+	
+	};
+	
+	
+--> Levantamento de dados (Modelagem lógica) {
+	Tabelas/Entidades (
+		TB_Aluno:
+			ID_ALUNO: PK INT NOT NULL UN AI;
+			FK_ID_TURMA;
+			NOME: VARCHAR(50) NOT NULL;
+			RA: CHAR(6) NOT NULL UN;
+			
+		TB_Serie:
+			ID_SERIE: PK INT NOT NULL UN AI;
+			SERIE: CHAR(1) NOT NULL;
+			ANO_LET: DATE();
+			
+		TB_Turma:
+			ID_TURMA: PK INT NOT NULL UN AI;
+			FK_ID_PROF;
+			TURMA: VARCHAR(20) NOT NULL;
+			
+		TB_Professor:
+			ID_PROF: PK INT NOT NULL UN AI;
+			NOME: VARCHAR(50) NOT NULL;
+			
+		TB_Disciplina:
+			ID_DISC: PK INT NOT NULL UN AI;
+			NOME_DISC: VARCHAR(50) NOT NULL;
+			
+		TB_Indicador:
+			ID_IND: PK INT NOT NULL UN AI;
+			INDICADOR: VARCHAR(50) NOT NULL;
+			
+		TB_SubIndicador:
+			ID_SUB: PK INT NOT NULL UN AI;
+			FK_ID_IND;
+			SUB_IND: VARCHAR(200);
+			
+		TB_Trimestre:
+			ID_TRI: PK INT NOT NULL UN AI;
+			TRI: CHAR(12)
+		
+		TB_Mencao:
+			ID_MENCAO: PK INT NOT NULL UN AI;
+			FK_ID_ALUNO;
+			FK_ID_TRI;
+			MENCAO: INT;
+			
+			
+		TB_Comentario:
+			ID_COMENT: PK INT NOT NULL UN AI;
+			COMENT: TEXT();
+		
+	)
+
+}
+	
